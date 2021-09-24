@@ -47,7 +47,7 @@ services:
         - 8001:8001
         - 8444:8444
 
-    application:
+    backend:
       depends_on:
         - kong-database
       image: node-app
