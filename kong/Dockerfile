@@ -1,0 +1,15 @@
+FROM kong
+
+COPY kong.yml kong.yml
+
+ENV KONG_DATABASE=${KONG_DATABASE} \
+    KONG_PG_HOST=${KONG_PG_HOST} \
+    KONG_PG_USER=${KONG_PG_USER} \
+    KONG_PG_PASSWORD=${KONG_PG_PASSWORD} \
+    KONG_LOG_LEVEL=info \
+    KONG_PROXY_ACCESS_LOG=/dev/stdout \
+    KONG_ADMIN_ACCESS_LOG=/dev/stdout \
+    KONG_PROXY_ERROR_LOG=/dev/stderr \
+    KONG_ADMIN_ERROR_LOG=/dev/stderr \
+    KONG_ADMIN_LISTEN="0.0.0.0:8001, 0.0.0.0:8444 ssl" \
+    KONG_DECLARATIVE_CONFIG=kong.yml

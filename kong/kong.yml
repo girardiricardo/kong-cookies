@@ -1,0 +1,12 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: auth
+    url: http://auth:4000
+
+routes:
+  - name: auth
+    service: auth
+    paths:
+      - /auth
