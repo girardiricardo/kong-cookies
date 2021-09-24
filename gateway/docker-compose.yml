@@ -46,3 +46,12 @@ services:
         - 8443:8443
         - 8001:8001
         - 8444:8444
+
+    application:
+      depends_on:
+        - kong-database
+      image: node-app
+      networks:
+        - kong-net
+      ports:
+        - 4000:4000
